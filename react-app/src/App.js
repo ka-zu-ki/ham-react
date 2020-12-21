@@ -1,8 +1,33 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-class App extends Component {
+const App = () => {
+  return (
+    <Counter></Counter>
+  );
+};
+
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { count: 0 }
+  }
+
+  handlePlusButton = () => {
+    this.setState({ count: this.state.count + 1})
+  }
+
+  handleMinusButton = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
+
   render() {
-    return (<div><h1>Hello World</h1></div>);
+    return (
+      <React.Fragment>
+        <div>counter: { this.state.count}</div>
+        <button onClick={this.handlePlusButton}>+1</button>
+        <button onClick={this.handleMinusButton}>-1</button>
+      </React.Fragment>
+    )
   }
 }
 
